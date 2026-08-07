@@ -3,45 +3,620 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayoub Elkadiri | Portfolio</title>
+
+    <title>Ayoub Elkadiri | Électromécanique & Automatisation</title>
+
+    <meta name="description"
+          content="Portfolio professionnel de Ayoub Elkadiri, étudiant en Électromécanique des Systèmes Automatisés.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1f2937;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* GENERAL */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+            padding: 120px 25px 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hello {
+            color: #38bdf8;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 32px);
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            max-width: 700px;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 23px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #07111f;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .btn-outline:hover {
+            background: #38bdf8;
+            color: #07111f;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 14px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #f8fafc;
+        }
+
+        .card p {
+            color: #94a3b8;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+            color: #38bdf8;
+        }
+
+        .skill p {
+            color: #94a3b8;
+        }
+
+        /* EDUCATION */
+        .timeline {
+            border-left: 2px solid #38bdf8;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #38bdf8;
+            border-radius: 50%;
+            left: -37px;
+            top: 8px;
+        }
+
+        .timeline-item h3 {
+            font-size: 21px;
+        }
+
+        .timeline-item .date {
+            color: #38bdf8;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .timeline-item p {
+            color: #94a3b8;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 30px;
+            border-radius: 14px;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 20px;
+            background: #172554;
+            color: #7dd3fc;
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #1f2937;
+            color: #64748b;
+        }
+
+        /* MOBILE */
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .skills,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Ayoub Elkadiri</h1>
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">Ayoub<span>.</span></div>
 
-    <h2>Étudiant en Électromécanique des Systèmes Automatisés</h2>
+        <ul class="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#education">Formation</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <hr>
 
-    <h2>À propos de moi</h2>
+<!-- HERO -->
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hello">Bonjour, je suis</div>
+
+        <h1>
+            Ayoub <span>Elkadiri</span>
+        </h1>
+
+        <h2>
+            Étudiant en Électromécanique<br>
+            des Systèmes Automatisés
+        </h2>
+
+        <p>
+            Passionné par l'automatisation industrielle, la maintenance,
+            l'électricité et les systèmes mécaniques.
+            Je développe progressivement mes compétences à travers
+            la formation et des projets pratiques.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+                Voir mes projets
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Me contacter
+            </a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2 class="section-title">
+        À <span>propos</span>
+    </h2>
+
+    <div class="about-grid">
+
+        <div class="card">
+            <h3>Profil</h3>
+
+            <p>
+                Étudiant en Électromécanique des Systèmes Automatisés,
+                intéressé par les environnements industriels et les
+                technologies d'automatisation.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Objectif professionnel</h3>
+
+            <p>
+                Développer une solide expérience dans la maintenance
+                industrielle, l'automatisation et les systèmes
+                électromécaniques.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+<section id="education">
+
+    <h2 class="section-title">
+        Ma <span>formation</span>
+    </h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <h3>
+                Technicien Spécialisé –
+                Électromécanique des Systèmes Automatisés
+            </h3>
+
+            <div class="date">
+                OFPPT
+            </div>
+
+            <p>
+                Formation dans les domaines de l'électromécanique,
+                l'automatisme industriel, l'électricité, la mécanique
+                et la maintenance.
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>Formations & certifications</h3>
+
+            <div class="date">
+                À compléter
+            </div>
+
+            <p>
+                Les certifications et formations complémentaires
+                seront ajoutées ici.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <h2 class="section-title">
+        Mes <span>compétences</span>
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>⚙️ Électromécanique</h3>
+            <p>
+                Systèmes électromécaniques et maintenance.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>🤖 Automatisme</h3>
+            <p>
+                Bases des systèmes automatisés industriels.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>⚡ Électricité</h3>
+            <p>
+                Circuits électriques et systèmes industriels.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>🔧 Mécanique</h3>
+            <p>
+                Bases de mécanique et maintenance.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>💻 AutoCAD</h3>
+            <p>
+                Conception et lecture de plans techniques.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>📊 Microsoft Excel</h3>
+            <p>
+                Utilisation d'Excel pour l'organisation et l'analyse.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <h2 class="section-title">
+        Mes <span>projets</span>
+    </h2>
+
+    <div class="projects">
+
+        <div class="project">
+
+            <h3>🚦 Système de feu tricolore</h3>
+
+            <p>
+                Projet basé sur Arduino permettant de contrôler
+                automatiquement un système de signalisation.
+            </p>
+
+            <span class="tag">Arduino</span>
+            <span class="tag">Électronique</span>
+            <span class="tag">Automatisation</span>
+
+        </div>
+
+
+        <div class="project">
+
+            <h3>⚙️ Projet d'automatisation</h3>
+
+            <p>
+                Projet à compléter avec une description de votre
+                réalisation pratique.
+            </p>
+
+            <span class="tag">Automatisme</span>
+            <span class="tag">Électromécanique</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+    <h2 class="section-title">
+        <span>Contact</span>
+    </h2>
+
     <p>
-        Je suis étudiant en Électromécanique des Systèmes Automatisés,
-        passionné par la maintenance industrielle, l'automatisation
-        et les systèmes électriques et mécaniques.
+        Vous souhaitez me contacter pour une opportunité,
+        un projet ou une collaboration ?
     </p>
 
-    <h2>Formation</h2>
-    <ul>
-        <li>Technicien Spécialisé – Électromécanique des Systèmes Automatisés – OFPPT</li>
-    </ul>
+    <div class="contact-links">
 
-    <h2>Compétences</h2>
-    <ul>
-        <li>Électromécanique</li>
-        <li>Automatisme industriel</li>
-        <li>Maintenance industrielle</li>
-        <li>Électricité</li>
-        <li>Mécanique</li>
-        <li>Arduino</li>
-        <li>AutoCAD</li>
-    </ul>
+        <!-- Remplace les liens par tes vrais comptes -->
 
-    <h2>Projets</h2>
-    <p>Mes projets seront ajoutés prochainement.</p>
+        <a href="mailto:TON_EMAIL@example.com"
+           class="btn btn-primary">
+            📧 Email
+        </a>
 
-    <h2>Contact</h2>
-    <p>Email : ton-email@example.com</p>
+        <a href="https://www.linkedin.com/"
+           target="_blank"
+           class="btn btn-outline">
+            LinkedIn
+        </a>
+
+        <a href="https://github.com/ayoubelkadiri"
+           target="_blank"
+           class="btn btn-outline">
+            GitHub
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    © 2026 Ayoub Elkadiri — Portfolio professionnel
+
+</footer>
 
 </body>
 </html>
